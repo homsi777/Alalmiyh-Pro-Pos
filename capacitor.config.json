@@ -1,0 +1,48 @@
+{
+  "appId": "com.alalmiyh.pro",
+  "appName": "Alalmiyh Pro Pos",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "CapacitorSQLite": {
+      "iosDatabaseLocation": "Library/CapacitorDatabase",
+      "iosIsEncryption": false,
+      "iosKeychainPrefix": "db",
+      "androidIsEncryption": false,
+      "androidBiometric": {
+        "BiometricAuth": false,
+        "BiometricTitle": "Scan your fingerprint to connect to the database",
+        "BiometricSubtitle": "Subtitle"
+      }
+    }
+  },
+  "android": {
+    "windowSoftInputMode": "adjustResize",
+    "permissions": [
+      {
+        "name": "android.permission.BLUETOOTH"
+      },
+      {
+        "name": "android.permission.BLUETOOTH_ADMIN"
+      },
+      {
+        "name": "android.permission.BLUETOOTH_CONNECT",
+        "reason": "Required for connecting to Bluetooth thermal printers on Android 12+."
+      },
+      {
+        "name": "android.permission.BLUETOOTH_SCAN",
+        "reason": "Required for discovering Bluetooth thermal printers on Android 12+."
+      },
+      {
+        "name": "android.permission.ACCESS_COARSE_LOCATION",
+        "reason": "Required for finding printers on older Android versions."
+      },
+      {
+        "name": "android.permission.WRITE_EXTERNAL_STORAGE"
+      },
+      {
+        "name": "android.permission.POST_NOTIFICATIONS"
+      }
+    ]
+  }
+}

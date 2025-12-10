@@ -1,0 +1,95 @@
+{
+  "name": "alalmiyh-pro-pos",
+  "private": true,
+  "version": "1.0.0",
+  "description": "نظام محاسبة ونقاط بيع (POS) متكامل يعمل على الويندوز والماك واللينكس والاندرويد.",
+  "main": "electron/main.js",
+  "homepage": "./",
+
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build:web": "tsc && vite build",
+    "build": "npm run build:web",
+    "preview": "vite preview",
+
+    "sync": "npm run build:web && npx cap sync",
+    "open:android": "npx cap open android",
+
+    "electron:dev": "concurrently -k \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "npm run build:web && electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "rebuild": "electron-rebuild -f -w better-sqlite3"
+  },
+
+  "dependencies": {
+    "@capacitor/core": "^5.7.0",
+    "@capacitor/android": "^5.7.0",
+
+    "@capacitor-community/sqlite": "^5.4.1",
+    "@capacitor-mlkit/barcode-scanning": "^5.0.0",
+
+    "@awesome-cordova-plugins/bluetooth-serial": "^6.7.0",
+    "cordova-plugin-bluetooth-serial": "^0.4.7",
+
+    "@point-of-sale/receipt-printer-encoder": "^3.0.3",
+    "@point-of-sale/codepage-encoder": "^3.0.0",
+    "html2canvas": "^1.4.1",
+
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.2",
+
+    "better-sqlite3": "^11.1.2"
+  },
+
+  "devDependencies": {
+    "@capacitor/cli": "^5.7.0",
+
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+
+    "electron": "^29.4.6",
+    "electron-builder": "^25.1.8",
+    "electron-rebuild": "^3.2.9",
+
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1",
+
+    "tailwindcss": "^3.4.18",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
+  },
+
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+
+  "capVersion": "5.0.0",
+
+  "build": {
+    "appId": "com.alalmiyh.pro",
+    "productName": "Alalmiyh Pro POS",
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "asar": true,
+
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles for live barcode scanner overlay */
+body.barcode-scanning-active {
+  background-color: transparent !important;
+}
+
+body.barcode-scanning-active #root,
+body.barcode-scanning-active #root > div {
+  background-color: transparent !important;
+}
+
+/* Hide all direct children of the main app container except the scanner UI */
+body.barcode-scanning-active #root > div > *:not(.scanner-container) {
+  visibility: hidden;
+}
+
+/* Ensure the scanner container itself is visible */
+body.barcode-scanning-active .scanner-container {
+  visibility: visible;
+}

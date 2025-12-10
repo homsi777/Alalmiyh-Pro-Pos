@@ -1,0 +1,8 @@
+{
+  "name": "Alalmiyh Pro Pos",
+  "description": "برنامج محاسبة ونقاط بيع (POS) شامل مع دعم لتعدد العملات واللغات، مصمم للعمل محليًا على أجهزة سطح المكتب والجوال.",
+  "requestFramePermissions": [
+    "camera",
+    "bluetooth"
+  ]
+}
